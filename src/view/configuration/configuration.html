@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Landscape Extension Configuration</title>
+  <meta name="description" content="Configure Message">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <h3>This is Configuration for Landscape API</h3>
+    <form>
+      <div class="form-group">
+        <p>Set Configuration</p>
+        <table class="table table-condensed">
+        <tr>
+          <th class="text-left">UID</th>
+          <th class="text-left">PW</th>
+          <th class="text-left">GID</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" id="uid" class="form-control" required>
+          </td>        
+          <td>
+            <input type="text" id="pw" class="form-control" required>
+          </td>   
+          <td>
+            <input type="text" id="gid" class="form-control" required>
+          </td> 
+        </table>
+            <p><input type="checkbox" class="fire_per_visit " id="fire_per_visit" value="1">訪問の最初のみ発火する</p>
+        <br>
+        <p>Set Variables</p>
+        <span class="label label-default">eVars</span>
+        <br>
+        <br>
+        <div name="eVarItem">
+          <select id="evar_item_select1"  name="evar_item_select"  style="width:150px;"></select>
+          <select id="evar_no_select1" name="evar_no_select" style="width:110px;"></select>
+        </div> 
+        <br>
+          <input type="button" name="AddEvars" id="AddEvars" value="eVarを追加" onclick="AddVariables('eVar','eVarItem','evar_item_select','evar_no_select')" class="btn btn-default">
+        <br>       
+        <br> 
+        <span class="label label-default">prop</span>
+        <br>
+        <br>
+        <div name="propItem">
+          <select id="prop_item_select1"  name="prop_item_select" style="width:150px;"></select>
+          <select id="prop_no_select1" name="prop_no_select" style="width:110px;"></select>
+        </div> 
+        <br>
+          <input type="button" name="AddProps" id="AddProps" value="propを追加" onclick="AddVariables('prop','propItem','prop_item_select','prop_no_select')" class="btn btn-default">
+    </form>
+  </div>
+
+  <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script src="./const.js"></script>
+  <script src="./layout.js"></script>
+  <script src="./configuration.js"></script>
+</body>
+
+</html>
