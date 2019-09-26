@@ -1,9 +1,10 @@
-var uid = turbine.getExtensionSettings().uid;
-var pw = turbine.getExtensionSettings().pw;
-var gid = turbine.getExtensionSettings().gid;
-var firePerVisit = turbine.getExtensionSettings().fire_per_visit;
+'use strict';
+var landscapeObj = turbine.getExtensionSettings().landscapeObj;
+console.log("data selement value Company Address "+ turbine.getDataElementValue("Company Address"));
 
 function _LBCUA(argv){
+
+  console.log("API Call2");
 
   this.uid = argv.uid || "";
   this.pw  = argv.pw || "";
@@ -68,8 +69,10 @@ function _LBCUA(argv){
   this.timeoutid = setTimeout(argv.name+".callback_timeout()",this.timeout);
 }
 
-// Module Call
 module.exports = function(settings) {
+
+  console.log("this is landscape objects222");
+  console.log("landscapeObjects.js settings landscapeObj " + settings.landscapeObj);
 
   window.__LBCUA = new _LBCUA({
     'name': "__LBCUA",
@@ -89,20 +92,15 @@ module.exports = function(settings) {
         lbcdata.emp_range = this.values.emp_range;
         lbcdata.office_id = this.values.office_id;
         lbcdata.corporate_number = this.values.corporate_number;
-
-        // Analytics設定処理
-        var getTrackerFn = turbine.getSharedModule("adobe-analytics", "get-tracker");
-        getTrackerFn().then(function(tracker) {
-
-          console.log("Analytics Call");
-
-        }, function(err) {
-             turbine.logger.error("Strange things are afoot at the Circle-K", err);
-        });
     },
 
     'sendLbcdata': function(){
         lbcdata.loaded = "succeeded";
     }
   });
-}
+
+  console.log("this is landscape objects333");
+
+  return window.lbcdata[settings.attributeName];
+
+};

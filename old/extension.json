@@ -28,18 +28,5 @@
       },
       "libPath": "src/lib/actions/testAction.js"
     }
-  ],
-  "dataElements": [
-    {
-      "displayName": "Landscape Objects",
-      "name": "landscape-objects",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/dataElements/landscapeObjects.js",
-      "viewPath": "dataElements/landscapeObjects.html"
-    }
   ]
 }
