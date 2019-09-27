@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landscape Extension Configuration</title>
+  <title>Landscape Extension 取得情報</title>
   <meta name="description" content="DataElement View">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -12,20 +12,20 @@
 <body>
   <div>
       <div class="form-group">
-        <p>Select Comapny Attribute you would like to get</p>
+        <p>利用したい企業情報を選択してください</p>
         <div name="data_list">
           <select id="land_scape_items" name="land_scape_items" class="form-control" style="width:150px;" >
-            <option selected value="company_name">Company Name</option>
-            <option value="company_addr">Company Address</option>
-            <option value="company_tel">TEL</option>
-            <option value="industry_name_m">Industry</option>
-            <option value="corporate_number">Company Number</option>
-            <option value="emp_range">Employee Range</option>
-            <option value="office_id">Office ID</option>
+            <option selected value="company_name">会社名</option>
+            <option value="company_addr">会社住所</option>
+            <option value="company_tel">電話番号</option>
+            <option value="industry_name_m">業種名</option>
+            <option value="corporate_number">企業番号</option>
+            <option value="emp_range">従業員規模</option>
+            <option value="office_id">オフィスID</option>
           </select>
         </div> 
   </div>
   <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
-  <script src="./dataelement.js"></script>
+  <script src="./configDataElement.js"></script>
 </body>
 </html>

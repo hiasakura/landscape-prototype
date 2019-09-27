@@ -1,10 +1,10 @@
 {
-  "displayName": "Asakura-Dummy-Extension",
-  "name": "asakura-dummy-extension",
+  "displayName": "LandscapeAPI Extension",
+  "name": "landscapeapi_extension",
   "platform": "web",
   "version": "1.0.0",
   "iconPath": "landscape.svg",
-  "description": "Asakura Test module with Digital Stacks",
+  "description": "Call andscape API via Launch Exntension Module",
   "author": {
     "name": "Asakura"
   },
@@ -17,29 +17,17 @@
       "properties": {}
     }
   },
-  "actions": [
-    {
-      "displayName": "Test Action",
-      "name": "test-action",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/actions/testAction.js"
-    }
-  ],
   "dataElements": [
     {
-      "displayName": "Landscape Objects",
-      "name": "landscape-objects",
+      "displayName": "Landscape属性情報",
+      "name": "landscape_dataelements",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {}
       },
-      "libPath": "src/lib/dataElements/landscapeObjects.js",
-      "viewPath": "dataElements/landscapeObjects.html"
+      "libPath": "src/lib/dataElements/landscapeDataElement.js",
+      "viewPath": "dataElements/landscapeDataElement.html"
     }
   ]
 }

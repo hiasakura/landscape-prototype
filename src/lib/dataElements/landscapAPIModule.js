@@ -1,10 +1,11 @@
-'use strict';
-var landscapeObj = turbine.getExtensionSettings().landscapeObj;
-console.log("data selement value Company Address "+ turbine.getDataElementValue("Company Address"));
+
+// 企業属性情報取得APIモジュール
+
+var p_uid = turbine.getExtensionSettings().uid;
+var p_pw = turbine.getExtensionSettings().pw;
+var p_gid = turbine.getExtensionSettings().gid;
 
 function _LBCUA(argv){
-
-  console.log("API Call2");
 
   this.uid = argv.uid || "";
   this.pw  = argv.pw || "";
@@ -69,38 +70,28 @@ function _LBCUA(argv){
   this.timeoutid = setTimeout(argv.name+".callback_timeout()",this.timeout);
 }
 
-module.exports = function(settings) {
+window.__LBCUA = new _LBCUA({
 
-  console.log("this is landscape objects222");
-  console.log("landscapeObjects.js settings landscapeObj " + settings.landscapeObj);
+  'name': "__LBCUA",
+  'uid': p_uid,
+  'pw':  p_pw,
+  'gid': p_gid,
 
-  window.__LBCUA = new _LBCUA({
-    'name': "__LBCUA",
-    'uid': uid,
-    'pw':  pw,
-    'gid': gid,
+  'createLbcdata': function(){
+      window.lbcdata = {};
+  },
+  'setLbcdata': function(){
+  	
+      module.exports.company_name = this.values.company_name;
+      module.exports.company_addr = this.values.company_addr;
+      module.exports.industry_name_m = this.values.industry_name_m;
+      module.exports.sales_range = this.values.sales_range;
+      module.exports.emp_range = this.values.emp_range;
+      module.exports.office_id = this.values.office_id;
+      module.exports.corporate_number = this.values.corporate_number;
 
-    'createLbcdata': function(){
-        window.lbcdata = {};
-    },
-
-    'setLbcdata': function(){
-        lbcdata.company_name = this.values.company_name;
-        lbcdata.company_addr = this.values.company_addr;
-        lbcdata.industry_name_m = this.values.industry_name_m;
-        lbcdata.sales_range = this.values.sales_range;
-        lbcdata.emp_range = this.values.emp_range;
-        lbcdata.office_id = this.values.office_id;
-        lbcdata.corporate_number = this.values.corporate_number;
-    },
-
-    'sendLbcdata': function(){
-        lbcdata.loaded = "succeeded";
-    }
-  });
-
-  console.log("this is landscape objects333");
-
-  return window.lbcdata[settings.attributeName];
-
-};
+  },
+  'sendLbcdata': function(){
+      lbcdata.loaded = "succeeded";
+  }
+});
