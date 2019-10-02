@@ -1,6 +1,28 @@
 
 // 企業属性情報取得APIモジュール
 
+var moduleData = {};
+var isCallDataElemant = false;
+
+module.exports = function(key) {
+  isCallDataElemant = true;
+  return moduleData[key] || null;
+};
+
+var p_fire_per_visit = turbine.getExtensionSettings().fire_per_visit;
+var storageData = sessionStorage.getItem("lbcdata");
+if (storageData) {
+  try {
+    moduleData = JSON.parse(storageData);
+  } catch (e) {
+    sessionStorage.removeItem("lbcdata");
+  }
+  if (p_fire_per_visit) {
+    sessionStorage.setItem("lbcdata", JSON.stringify({}));
+    return;
+  }
+}
+
 var p_uid = turbine.getExtensionSettings().uid;
 var p_pw = turbine.getExtensionSettings().pw;
 var p_gid = turbine.getExtensionSettings().gid;
@@ -81,17 +103,17 @@ window.__LBCUA = new _LBCUA({
       window.lbcdata = {};
   },
   'setLbcdata': function(){
-  	
-      module.exports.company_name = this.values.company_name;
-      module.exports.company_addr = this.values.company_addr;
-      module.exports.industry_name_m = this.values.industry_name_m;
-      module.exports.sales_range = this.values.sales_range;
-      module.exports.emp_range = this.values.emp_range;
-      module.exports.office_id = this.values.office_id;
-      module.exports.corporate_number = this.values.corporate_number;
-
+      moduleData = {};
+      moduleData.company_name = this.values.company_name;
+      moduleData.company_addr = this.values.company_addr;
+      moduleData.industry_name_m = this.values.industry_name_m;
+      moduleData.sales_range = this.values.sales_range;
+      moduleData.emp_range = this.values.emp_range;
+      moduleData.office_id = this.values.office_id;
+      moduleData.corporate_number = this.values.corporate_number;
   },
   'sendLbcdata': function(){
       lbcdata.loaded = "succeeded";
+      sessionStorage.setItem("lbcdata", JSON.stringify(isCallDataElemant ? moduleData : {}));
   }
 });

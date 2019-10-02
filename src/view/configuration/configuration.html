@@ -1,30 +1,28 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Landscape Extension 設定入力</title>
-  <meta name="description" content="Configure Message">
+  <meta name="description" content="Configuration View">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-
 <body>
   <div>
     <form>
-      <div>
+      <div class="mt-4 ml-4">
         <p>APIの実行に必要な設定情報を入力してください</p>
-        <label>UID</label>
+        <label>ユーザーID <span class="badge badge-danger">必須</span></label>
           <input type="text" id="uid" class="form-control" style="width:150px;" required>
         <br>
-        <label>PW</label>
+        <label>パスワード <span class="badge badge-danger">必須</label>
           <input type="text" id="pw" class="form-control" style="width:150px;" required>
         <br>
-        <label>GID</label>
+        <label>グループID <span class="badge badge-danger">必須</label>
           <input type="text" id="gid" class="form-control" style="width:150px;" required>
-        <br>
-            <p><input type="checkbox" class="fire_per_visit " id="fire_per_visit" value="1">訪問の最初のみ発火する</p>
+        <br>        
+        <p><input type="checkbox" class="fire_per_visit " id="fire_per_visit" value="1">訪問の最初のみ発火する</p>
     </form>
   </div>
   <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
